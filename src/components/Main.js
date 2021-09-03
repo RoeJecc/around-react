@@ -1,46 +1,75 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
+import api from "../utils/api";
+import Card from "./Card.js";
 
-function Main() {
+function Main(props) {
+  const {
+    onEditAvatarClick,
+    onEditProfileClick,
+    onAddPlaceClick,
+    onCardClick,
+    cards,
+  } = props;
 
-    
+  const [currentUser, setCurrentUser] = useState("");
 
-    function handleEditAvatarClick() {
-        const avatarModal = document.querySelector('.modal_type_avatar');
-        avatarModal.classList.add('modal_open');
-    }
+  React.useEffect(() => {
+    api.getUserInfo().then((res) => {
+      setCurrentUser(res);
+    });
+  });
 
-    function handleEditProfileClick() {
-        const editProfileModal = document.querySelector('.modal_type_profile');
-        editProfileModal.classList.add('modal_open');
-    }
+  return (
+    <main className="content">
+      <section className="profile">
+        <div className="profile__avatar-container">
+          <img
+            className="profile__avatar"
+            src={currentUser.avatar}
+            alt="Cousteau Image"
+            id="cousteau-image"
+          />
+          <div className="profile__overlay">
+            <button
+              onClick={onEditAvatarClick}
+              className="profile__avatar-button"
+              type="button"
+              name="avatar"
+            />
+          </div>
+        </div>
+        <div className="profile__info">
+          <h1 className="profile__name">{currentUser.name}</h1>
+          <button
+            onClick={onEditProfileClick}
+            className="profile__edit-button"
+            type="button"
+            name="edit"
+          />
+          <p className="profile__occupation">{currentUser.about}</p>
+        </div>
+        <button
+          onClick={onAddPlaceClick}
+          className="profile__add-button"
+          type="button"
+          name="add"
+        />
+      </section>
+      <section className="elements">
+        <>
+        {cards.map((card) => (
+            <Card 
+            key={card._id}
+            card={card}
+            
+            />
 
-    function handleAddPlaceClick() {
-        const addPlaceModal = document.querySelector('.modal_type_add-card');
-        addPlaceModal.classList.add('modal_open');
-    }
-
-    
-
-
-    return (
-        <main className="content">
-            <section className="profile">
-                <div className="profile__avatar-container">
-                  <img className="profile__avatar" alt="Cousteau Image" id="cousteau-image" />
-                  <div className="profile__overlay">
-                    <button onClick={handleEditAvatarClick} className="profile__avatar-button"  type="button" name="avatar" />
-                  </div>
-                </div>
-                <div className="profile__info">
-                  <h1 className="profile__name" />
-                  <button onClick={handleEditProfileClick} className="profile__edit-button" type="button" name="edit" />
-                  <p className="profile__occupation" />
-                </div>
-                <button onClick={handleAddPlaceClick} className="profile__add-button" type="button" name="add" />
-            </section>
-            <section className="elements" />
-        </main>
-    )
+        )
+        )}   
+        </>
+      </section>
+    </main>
+  );
 }
 
 export default Main;
