@@ -13,8 +13,8 @@ function PopupWithImage(props) {
             onClick={onClose}
           />
           <figure className="modal__image-container">
-            <img className="modal__image" alt="Card Image" />
-            <figcaption className="modal__image-caption" />
+            <img className="modal__image" alt="Card Image" src={card && card.link} />
+            <figcaption className="modal__image-caption">{card.name}</figcaption>
           </figure>
         </div>
       </div>

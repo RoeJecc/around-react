@@ -61,6 +61,7 @@ function Main(props) {
             <Card 
             key={card._id}
             card={card}
+            onCardClick= {onCardClick}
             
             />
 

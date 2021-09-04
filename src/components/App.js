@@ -15,18 +15,18 @@ function App() {
   const [editAvatarOpen, setEditAvatarOpen] = useState(false);
   const [editProfileOpen, setEditProfileOpen] = useState(false);
   const [addPlaceOpen, setAddPlaceOpen] = useState(false);
-  // const [imagePopupOpen, setImagePopupOpen] = useState(false);
-  const [cards, setCards] = useState([])
+  const [imagePopupOpen, setImagePopupOpen] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [selectedCard, setSelectedCard] = useState("");
 
   React.useEffect(() => {
-    api.getInitialCards()
-    .then((res) => {
-        setCards(res)
-    })
-    .catch(err => console.log(err));
-})
-
-
+    api
+      .getInitialCards()
+      .then((res) => {
+        setCards(res);
+      })
+      .catch((err) => console.log(err));
+  });
 
   function handleEditAvatarClick() {
     setEditAvatarOpen(true);
@@ -40,14 +40,11 @@ function App() {
     setAddPlaceOpen(true);
   }
 
-  // handleCardClick(card) {
-  //   setImagePopupOpen(true);
-  // }
-
   function closePopups() {
     setEditAvatarOpen(false);
     setEditProfileOpen(false);
     setAddPlaceOpen(false);
+    setImagePopupOpen(false);
   }
 
   function handleClosePopups(e) {
@@ -55,7 +52,10 @@ function App() {
     closePopups();
   }
 
-  
+  function handleCardClick(card) {
+    setSelectedCard(card);
+    setImagePopupOpen(true);
+  }
 
   return (
     <div className="page">
@@ -65,15 +65,19 @@ function App() {
         onEditProfileClick={handleEditProfileClick}
         onAddPlaceClick={handleAddPlaceClick}
         cards={cards}
+        onCardClick={handleCardClick}
       />
       <Footer />
       <EditAvatarPopup isOpen={editAvatarOpen} onClose={handleClosePopups} />
       <EditProfilePopup isOpen={editProfileOpen} onClose={handleClosePopups} />
       <AddPlacePopup isOpen={addPlaceOpen} onClose={handleClosePopups} />
 
-      <PopupWithImage />
+      <PopupWithImage
+        card={selectedCard}
+        isOpen={imagePopupOpen}
+        onClose={handleClosePopups}
+      />
 
-      
       <div className="modal modal_type_delete-card">
         <div className="modal__container">
           <button
