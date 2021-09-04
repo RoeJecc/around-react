@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/RoeJecc/around-react/static/css/main.eeef9203.chunk.css",
-    "main.js": "/RoeJecc/around-react/static/js/main.efcddd9c.chunk.js",
-    "main.js.map": "/RoeJecc/around-react/static/js/main.efcddd9c.chunk.js.map",
-    "runtime-main.js": "/RoeJecc/around-react/static/js/runtime-main.7bb0bc2d.js",
-    "runtime-main.js.map": "/RoeJecc/around-react/static/js/runtime-main.7bb0bc2d.js.map",
-    "static/js/2.e8ca0177.chunk.js": "/RoeJecc/around-react/static/js/2.e8ca0177.chunk.js",
-    "static/js/2.e8ca0177.chunk.js.map": "/RoeJecc/around-react/static/js/2.e8ca0177.chunk.js.map",
-    "static/js/3.350e3a5e.chunk.js": "/RoeJecc/around-react/static/js/3.350e3a5e.chunk.js",
-    "static/js/3.350e3a5e.chunk.js.map": "/RoeJecc/around-react/static/js/3.350e3a5e.chunk.js.map",
-    "index.html": "/RoeJecc/around-react/index.html",
-    "static/css/main.eeef9203.chunk.css.map": "/RoeJecc/around-react/static/css/main.eeef9203.chunk.css.map",
-    "static/js/2.e8ca0177.chunk.js.LICENSE.txt": "/RoeJecc/around-react/static/js/2.e8ca0177.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/RoeJecc/around-react/static/media/TrashVector.ba431243.svg",
-    "static/media/Vector.c7581985.svg": "/RoeJecc/around-react/static/media/Vector.c7581985.svg"
+    "main.css": "/around-react/static/css/main.4c99c723.chunk.css",
+    "main.js": "/around-react/static/js/main.efcddd9c.chunk.js",
+    "main.js.map": "/around-react/static/js/main.efcddd9c.chunk.js.map",
+    "runtime-main.js": "/around-react/static/js/runtime-main.df710818.js",
+    "runtime-main.js.map": "/around-react/static/js/runtime-main.df710818.js.map",
+    "static/js/2.e8ca0177.chunk.js": "/around-react/static/js/2.e8ca0177.chunk.js",
+    "static/js/2.e8ca0177.chunk.js.map": "/around-react/static/js/2.e8ca0177.chunk.js.map",
+    "static/js/3.350e3a5e.chunk.js": "/around-react/static/js/3.350e3a5e.chunk.js",
+    "static/js/3.350e3a5e.chunk.js.map": "/around-react/static/js/3.350e3a5e.chunk.js.map",
+    "index.html": "/around-react/index.html",
+    "static/css/main.4c99c723.chunk.css.map": "/around-react/static/css/main.4c99c723.chunk.css.map",
+    "static/js/2.e8ca0177.chunk.js.LICENSE.txt": "/around-react/static/js/2.e8ca0177.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/around-react/static/media/TrashVector.ba431243.svg",
+    "static/media/Vector.c7581985.svg": "/around-react/static/media/Vector.c7581985.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7bb0bc2d.js",
+    "static/js/runtime-main.df710818.js",
     "static/js/2.e8ca0177.chunk.js",
-    "static/css/main.eeef9203.chunk.css",
+    "static/css/main.4c99c723.chunk.css",
     "static/js/main.efcddd9c.chunk.js"
   ]
 }
