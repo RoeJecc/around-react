@@ -7,7 +7,7 @@ import Footer from "./Footer.js";
 import EditAvatarPopup from "./EditAvatarPopup.js";
 import EditProfilePopup from "./EditProfilePopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
-import PopupWithImage from "./PopupWithImage.js";
+import ImagePopup from "./ImagePopup.js";
 
 import api from "../utils/api.js";
 
@@ -40,16 +40,16 @@ function App() {
     setAddPlaceOpen(true);
   }
 
-  function closePopups() {
+  function closeAllPopups() {
     setEditAvatarOpen(false);
     setEditProfileOpen(false);
     setAddPlaceOpen(false);
     setImagePopupOpen(false);
   }
 
-  function handleClosePopups(e) {
+  function handlecloseAllPopups(e) {
     if (e.target !== e.currentTarget) return;
-    closePopups();
+    closeAllPopups();
   }
 
   function handleCardClick(card) {
@@ -68,14 +68,14 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer />
-      <EditAvatarPopup isOpen={editAvatarOpen} onClose={handleClosePopups} />
-      <EditProfilePopup isOpen={editProfileOpen} onClose={handleClosePopups} />
-      <AddPlacePopup isOpen={addPlaceOpen} onClose={handleClosePopups} />
+      <EditAvatarPopup isOpen={editAvatarOpen} onClose={handlecloseAllPopups} />
+      <EditProfilePopup isOpen={editProfileOpen} onClose={handlecloseAllPopups} />
+      <AddPlacePopup isOpen={addPlaceOpen} onClose={handlecloseAllPopups} />
 
-      <PopupWithImage
+      <ImagePopup
         card={selectedCard}
         isOpen={imagePopupOpen}
-        onClose={handleClosePopups}
+        onClose={closeAllPopups}
       />
 
       <div className="modal modal_type_delete-card">
