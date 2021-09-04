@@ -1,7 +1,7 @@
 import React from "react";
 
 function PopupWithForm(props) {
-  const { isOpen, title, onClose, buttonText, children } = props;
+  const { name, isOpen, title, onClose, buttonText, children } = props;
 
   return (
     <div className={`modal modal_type_${props.name} ${isOpen ? "modal_open" : ""}`} onClick={onClose} >

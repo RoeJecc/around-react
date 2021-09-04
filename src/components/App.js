@@ -10,6 +10,7 @@ import AddPlacePopup from "./AddPlacePopup.js";
 import ImagePopup from "./ImagePopup.js";
 
 import api from "../utils/api.js";
+import PopupWithForm from "./PopupWithForm.js";
 
 function App() {
   const [editAvatarOpen, setEditAvatarOpen] = useState(false);
@@ -69,7 +70,10 @@ function App() {
       />
       <Footer />
       <EditAvatarPopup isOpen={editAvatarOpen} onClose={handlecloseAllPopups} />
-      <EditProfilePopup isOpen={editProfileOpen} onClose={handlecloseAllPopups} />
+      <EditProfilePopup
+        isOpen={editProfileOpen}
+        onClose={handlecloseAllPopups}
+      />
       <AddPlacePopup isOpen={addPlaceOpen} onClose={handlecloseAllPopups} />
 
       <ImagePopup
@@ -78,25 +82,11 @@ function App() {
         onClose={closeAllPopups}
       />
 
-      <div className="modal modal_type_delete-card">
-        <div className="modal__container">
-          <button
-            className="modal__close-button modal__close-button_delete-card"
-            type="reset"
-          />
-          <form
-            className="modal__profile modal__profile_delete-card"
-            noValidate
-          >
-            <h3 className="modal__title modal__title_delete-card">
-              Are you sure?
-            </h3>
-            <button className="modal__form-submit" type="submit">
-              Yes
-            </button>
-          </form>
-        </div>
-      </div>
+      <PopupWithForm
+        name="delete-card"
+        title="Are you sure?"
+        buttonText="Yes"
+      />
     </div>
   );
 }
