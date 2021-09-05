@@ -1,15 +1,15 @@
 import React from "react";
 
-function PopupWithForm(props) {
-  const { name, isOpen, title, onClose, buttonText, children } = props;
+function PopupWithForm({ name, isOpen, title, onClose, buttonText, children }) {
+  
 
   return (
     <div
-      className={`modal modal_type_${props.name} ${isOpen ? "modal_open" : ""}`}
+      className={`modal modal_type_${name} ${isOpen ? "modal_open" : ""}`}
       onClick={onClose}
     >
       <div className="modal__container">
-        <form name="profile" className={`modal__profile modal__${props.name}`}>
+        <form name="profile" className={`modal__profile modal__${name}`}>
           <h3 className="modal__title">{title}</h3>
           {children}
           <button className="modal__form-submit" type="submit">

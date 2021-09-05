@@ -1,9 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditProfilePopup(props) {
-  const { isOpen, onClose } = props;
-
+function EditProfilePopup({ isOpen, onClose }) {
   function handleSubmit(e) {
     e.preventDefault();
   }

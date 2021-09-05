@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card.js";
 
-function Main(props) {
-  const { cards } = props;
-
+function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick, cards, onCardClick, currentUser }) {
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__avatar-container">
           <img
             className="profile__avatar"
-            src={props.currentUser ? props.currentUser.avatar : ""}
+            src={currentUser ? currentUser.avatar : ""}
             alt="Cousteau Image"
             id="cousteau-image"
           />
           <div className="profile__overlay">
             <button
-              onClick={props.onEditAvatarClick}
+              onClick={onEditAvatarClick}
               className="profile__avatar-button"
               type="button"
               name="avatar"
@@ -25,20 +23,20 @@ function Main(props) {
         </div>
         <div className="profile__info">
           <h1 className="profile__name">
-            {props.currentUser ? props.currentUser.name : ""}
+            {currentUser ? currentUser.name : ""}
           </h1>
           <button
-            onClick={props.onEditProfileClick}
+            onClick={onEditProfileClick}
             className="profile__edit-button"
             type="button"
             name="edit"
           />
           <p className="profile__occupation">
-            {props.currentUser ? props.currentUser.about : ""}
+            {currentUser ? currentUser.about : ""}
           </p>
         </div>
         <button
-          onClick={props.onAddPlaceClick}
+          onClick={onAddPlaceClick}
           className="profile__add-button"
           type="button"
           name="add"
@@ -47,7 +45,7 @@ function Main(props) {
       <section className="elements">
         <>
           {cards.map((card) => (
-            <Card key={card._id} card={card} onCardClick={props.onCardClick} />
+            <Card key={card._id} card={card} onCardClick={onCardClick} />
           ))}
         </>
       </section>

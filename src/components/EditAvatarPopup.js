@@ -1,9 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvatarPopup(props) {
-  const { isOpen, onClose } = props;
-
+function EditAvatarPopup({ isOpen, onClose }) {
   function handleSubmit(e) {
     e.preventDefault();
   }
