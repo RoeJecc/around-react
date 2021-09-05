@@ -1,23 +1,8 @@
 import React, { useState, useEffect } from "react";
-import api from "../utils/api";
 import Card from "./Card.js";
 
 function Main(props) {
-  const {
-    onEditAvatarClick,
-    onEditProfileClick,
-    onAddPlaceClick,
-    onCardClick,
-    cards,
-  } = props;
-
-  const [currentUser, setCurrentUser] = useState("");
-
-  React.useEffect(() => {
-    api.getUserInfo().then((res) => {
-      setCurrentUser(res);
-    });
-  });
+  const { cards } = props;
 
   return (
     <main className="content">
@@ -25,13 +10,13 @@ function Main(props) {
         <div className="profile__avatar-container">
           <img
             className="profile__avatar"
-            src={currentUser.avatar}
+            src={props.currentUser ? props.currentUser.avatar : ""}
             alt="Cousteau Image"
             id="cousteau-image"
           />
           <div className="profile__overlay">
             <button
-              onClick={onEditAvatarClick}
+              onClick={props.onEditAvatarClick}
               className="profile__avatar-button"
               type="button"
               name="avatar"
@@ -39,17 +24,21 @@ function Main(props) {
           </div>
         </div>
         <div className="profile__info">
-          <h1 className="profile__name">{currentUser.name}</h1>
+          <h1 className="profile__name">
+            {props.currentUser ? props.currentUser.name : ""}
+          </h1>
           <button
-            onClick={onEditProfileClick}
+            onClick={props.onEditProfileClick}
             className="profile__edit-button"
             type="button"
             name="edit"
           />
-          <p className="profile__occupation">{currentUser.about}</p>
+          <p className="profile__occupation">
+            {props.currentUser ? props.currentUser.about : ""}
+          </p>
         </div>
         <button
-          onClick={onAddPlaceClick}
+          onClick={props.onAddPlaceClick}
           className="profile__add-button"
           type="button"
           name="add"
@@ -57,16 +46,9 @@ function Main(props) {
       </section>
       <section className="elements">
         <>
-        {cards.map((card) => (
-            <Card 
-            key={card._id}
-            card={card}
-            onCardClick= {onCardClick}
-            
-            />
-
-        )
-        )}   
+          {cards.map((card) => (
+            <Card key={card._id} card={card} onCardClick={props.onCardClick} />
+          ))}
         </>
       </section>
     </main>
