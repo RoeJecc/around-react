@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvatarPopup({ isOpen, onClose }) {
+function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
+  
+  const avatarRef = useRef();
+  
   function handleSubmit(e) {
     e.preventDefault();
+    onUpdateAvatar(avatarRef.current.value)
   }
 
   return (
@@ -13,12 +17,15 @@ function EditAvatarPopup({ isOpen, onClose }) {
       buttonText="Save"
       isOpen={isOpen}
       onClose={onClose}
+      onUpdateAvatar={onUpdateAvatar}
       onSubmit={handleSubmit}
     >
       <input
+        ref={avatarRef}
         id="newAvatarURL"
         name="newAvatarURL"
         type="url"
+        minlength="2"
         required
         placeholder="Image link"
         className="modal__text-input modal__text-input_type_url"

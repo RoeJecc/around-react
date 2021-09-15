@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "./Card.js";
+import CurrentUserContext from "../contexts/CurrentUserContext.js";
 
-function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick, cards, onCardClick, currentUser }) {
+function Main({
+  onEditAvatarClick,
+  onEditProfileClick,
+  onAddPlaceClick,
+  cards,
+  onCardClick,
+  onCardLike,
+  onCardDelete,
+}) {
+  const currentUser = useContext(CurrentUserContext);
+
   return (
     <main className="content">
       <section className="profile">
@@ -45,7 +56,13 @@ function Main({ onEditAvatarClick, onEditProfileClick, onAddPlaceClick, cards, o
       <section className="elements">
         <>
           {cards.map((card) => (
-            <Card key={card._id} card={card} onCardClick={onCardClick} />
+            <Card
+              key={card._id}
+              card={card}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+              onCardDelete={onCardDelete}
+            />
           ))}
         </>
       </section>
