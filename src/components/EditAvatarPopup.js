@@ -25,7 +25,6 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         id="newAvatarURL"
         name="newAvatarURL"
         type="url"
-        minlength="2"
         required
         placeholder="Image link"
         className="modal__text-input modal__text-input_type_url"
