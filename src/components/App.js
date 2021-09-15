@@ -71,9 +71,9 @@ function App() {
       .setUserInfo({ name, about })
       .then((res) => {
         setCurrentUser(res);
+        closeAllPopups();
       })
       .catch((err) => console.log(err))
-      .finally(() => closeAllPopups());
   }
 
   function handleUpdateAvatar(avatar) {
@@ -81,18 +81,18 @@ function App() {
       .setUserAvatar(avatar)
       .then((res) => {
         setCurrentUser(res);
+        closeAllPopups();
       })
       .catch((err) => console.log(err))
-      .finally(() => closeAllPopups());
   }
 
   function handleAddPlace({name, link}){
     api.addCard({name, link})
     .then((newCard) => {
       setCards([newCard, ...cards])
+      closeAllPopups();
     })
     .catch((err) => console.log(err))
-    .finally(() => closeAllPopups());
   }
 
   function handleEditAvatarClick() {
@@ -123,6 +123,19 @@ function App() {
     setSelectedCard(card);
     setImagePopupOpen(true);
   }
+
+  React.useEffect(() => {
+    const closeByEscape = (e) => {
+      if (e.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+
+    document.addEventListener('keydown', closeByEscape)
+    
+    return () => document.removeEventListener('keydown', closeByEscape)
+}, [])
+
 
   return (
     <div className="page">

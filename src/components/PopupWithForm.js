@@ -9,7 +9,7 @@ function PopupWithForm({ name, isOpen, title, onClose, buttonText, children, onS
       onClick={onClose}
     >
       <div className="modal__container">
-        <form name="profile" onSubmit={onSubmit} className={`modal__profile modal__${name}`}>
+        <form name={`${name}`} onSubmit={onSubmit} className={`modal__profile modal__${name}`}>
           <h3 className="modal__title">{title}</h3>
           {children}
           <button className="modal__form-submit" type="submit">
